@@ -1,0 +1,34 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int numberOfEatedCookies(int time){
+    int result;
+    
+    result = floor(86400 / time);
+    
+    return result;
+}
+
+int main(){
+    int numberOfCalculation, numberOfGluttons;
+    float result2 = 0;
+    long cookiesInBox;
+    int cookiesEatingTime;
+
+    cin >> numberOfCalculation;
+
+    for (int i = 0; i < numberOfCalculation; i++){
+        cin >> numberOfGluttons >> cookiesInBox;
+
+        for (int i = 0; i < numberOfGluttons; i++){
+            cin >> cookiesEatingTime;
+
+            result2 += numberOfEatedCookies(cookiesEatingTime);
+        }
+        cout << ceil(result2 / cookiesInBox) << endl;
+        result2 = 0;
+    }
+    return 0;
+}
